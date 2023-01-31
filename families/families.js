@@ -45,8 +45,8 @@ function displayFamilies(lovingFamilies) {
             //    make an element with the css class 'bunny',
             // and put the bunny's name in the text content
             div3.textContent = bunny.name;
-
             div3.addEventListener('click', (async) => {
+                console.log('clicking');
                 //    add an event listener to the bunny el. On click, delete the bunny, then refetch and redisplay all families.
                 deleteBunny(bunny.id);
             });
@@ -56,7 +56,11 @@ function displayFamilies(lovingFamilies) {
         // append the bunniesEl and nameEl to the familyEl
         // append the familyEl to the familiesEl
         div2.append(div3);
-        div1.append(div2, h3);
+        div1.append(h3);
+
+        if (fuzzyBunnies.length > 0) {
+            div1.append(div3);
+        }
         familiesEl.append(div1);
         return familiesEl;
     });
