@@ -13,7 +13,8 @@ logoutButton.addEventListener('click', () => {
 
 function displayFamilies(lovingFamilies) {
     // fetch families from supabase
-    console.log(lovingFamilies);
+    // console.log(lovingFamilies);
+
     // clear out the familiesEl
     familiesEl.textContent = '';
     // loop through each family and for each family:
@@ -45,10 +46,11 @@ function displayFamilies(lovingFamilies) {
             //    make an element with the css class 'bunny',
             // and put the bunny's name in the text content
             div3.textContent = bunny.name;
-            div3.addEventListener('click', (async) => {
-                console.log('clicking');
+            div3.addEventListener('click', async () => {
+                // console.log('clicking');
+
                 //    add an event listener to the bunny el. On click, delete the bunny, then refetch and redisplay all families.
-                deleteBunny(bunny.id);
+                await deleteBunny(bunny.id);
             });
             return div3;
         });
